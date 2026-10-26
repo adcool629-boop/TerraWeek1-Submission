@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://36c63oywlniu"]
+
+[ext_resource type="Texture2D" uid="uid://cc1vegu4ti7" path="res://Assets/images.png" id="1_nbcaj"]
+[ext_resource type="Script" uid="uid://cq15vu6lrisgk" path="res://Scripts/mission.gd" id="1_uxhhj"]
+[ext_resource type="FontFile" uid="uid://c5rrea6vn6lyq" path="res://Assets/SimpleMonologueDemoRegular-qVq0.ttf" id="2_uxhhj"]
+
+[node name="Mission" type="Node2D" unique_id=1351073190]
+script = ExtResource("1_uxhhj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1828912920]
+position = Vector2(-3, 22.999985)
+scale = Vector2(1.4133574, 1.3935018)
+texture = ExtResource("1_nbcaj")
+
+[node name="Label" type="Label" parent="." unique_id=551662710]
+offset_left = -139.0
+offset_top = -146.0
+offset_right = 147.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uxhhj")
+theme_override_font_sizes/font_size = 30
+text = "Dear Adventurer
+Our village is in great peril.
+We are under consrant attack
+from these cursed monster. 
+We request help.
+"
+
+[node name="Button" type="Button" parent="." unique_id=650818914]
+offset_left = -54.0
+offset_top = 135.0
+offset_right = 46.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "DONE"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

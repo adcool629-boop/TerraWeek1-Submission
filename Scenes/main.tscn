@@ -1,0 +1,317 @@
+[gd_scene format=3 uid="uid://s53h01ip0nod"]
+
+[ext_resource type="Script" uid="uid://hp6pk282in5f" path="res://Scripts/main.gd" id="1_21xkr"]
+[ext_resource type="PackedScene" uid="uid://cv8yg8qg4bxrt" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cqs7buu5k488q" path="res://Scenes/TileMaps.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://c7stkakqfnk6t" path="res://Scenes/slime.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bcn8funh1y4ey" path="res://Scenes/cave_tile_map.tscn" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://c5l2ysbu481l2" path="res://Scenes/town.tscn" id="4_21xkr"]
+[ext_resource type="PackedScene" uid="uid://b63vj3t3tbap2" path="res://Scenes/slimesmall.tscn" id="6_6bp64"]
+[ext_resource type="PackedScene" uid="uid://dje1c7bhcue0" path="res://Scenes/player_light.tscn" id="8_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://dh6gixqngyu8v" path="res://Assets/UI/LifeBarMiniUnder.png" id="8_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://cnlesabuu343r" path="res://Scenes/health_potion.tscn" id="9_6iyac"]
+[ext_resource type="Texture2D" uid="uid://b0pdqhvyt02aq" path="res://Assets/UI/LifeBarMiniProgress.png" id="9_hptm8"]
+[ext_resource type="PackedScene" uid="uid://36c63oywlniu" path="res://Scenes/mission.tscn" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://bauo043c6pwdf" path="res://Scenes/posion_potion.tscn" id="12_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://cv1at3rrpc0jk" path="res://Scenes/End Message.tscn" id="13_fdnlq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1rta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iagy"]
+size = Vector2(95.333496, 132.50345)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emmts"]
+size = Vector2(65.33362, 100.000015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bp64"]
+size = Vector2(34, 35)
+
+[node name="main" type="Node2D" unique_id=1815361668]
+script = ExtResource("1_21xkr")
+
+[node name="Beginning" parent="." unique_id=1296466808 instance=ExtResource("2_8gbba")]
+scale = Vector2(2, 2)
+
+[node name="Move Info" type="Label" parent="Beginning" unique_id=1871704084]
+offset_left = 10.5
+offset_top = -90.0
+offset_right = 139.5
+offset_bottom = -67.0
+text = "W A S D To Move"
+
+[node name="Attack Info" type="Label" parent="Beginning" unique_id=1548256184]
+offset_left = 323.0
+offset_top = 56.5
+offset_right = 474.0
+offset_bottom = 79.5
+text = "Space Bar to Attack"
+
+[node name="CaveTP" type="Area2D" parent="Beginning" unique_id=948777989]
+position = Vector2(1255, 79.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beginning/CaveTP" unique_id=1946067233]
+position = Vector2(2, 2.5)
+shape = SubResource("RectangleShape2D_t1rta")
+
+[node name="CaveTileMap" parent="." unique_id=1081145563 instance=ExtResource("3_kry3j")]
+position = Vector2(14060, 0)
+scale = Vector2(1.5, 1.5)
+
+[node name="BeginningTP" type="Area2D" parent="CaveTileMap" unique_id=1298797779]
+position = Vector2(-46.85742, 16.326437)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaveTileMap/BeginningTP" unique_id=487729067]
+position = Vector2(-1.4765625, -1.4080458)
+shape = SubResource("RectangleShape2D_1iagy")
+
+[node name="TownTP" type="Area2D" parent="CaveTileMap" unique_id=371850235]
+position = Vector2(-1854.1665, -258.47287)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaveTileMap/TownTP" unique_id=1289686829]
+position = Vector2(-3.1669922, 2.4728699)
+shape = SubResource("RectangleShape2D_emmts")
+
+[node name="Town" parent="." unique_id=1259264393 instance=ExtResource("4_21xkr")]
+position = Vector2(5902, 7796)
+
+[node name="CaveTP2" type="Area2D" parent="Town" unique_id=232323731]
+position = Vector2(15, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Town/CaveTP2" unique_id=1139929356]
+position = Vector2(2, -3.5)
+shape = SubResource("RectangleShape2D_6bp64")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=905585109]
+position = Vector2(5916, 7862)
+
+[node name="Player" parent="." unique_id=1159347702 instance=ExtResource("1_jjgbg")]
+position = Vector2(1, 2)
+scale = Vector2(4, 4)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=747933877]
+
+[node name="PlayerLight" parent="Player" unique_id=1916007207 instance=ExtResource("8_d1ilt")]
+visible = false
+texture_scale = 2.4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1774894952]
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=30134781]
+offset_left = 152.0
+offset_top = 157.0
+offset_right = 192.0
+offset_bottom = 197.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(8, 8)
+value = 100.0
+texture_under = ExtResource("8_ynf5e")
+texture_progress = ExtResource("9_hptm8")
+
+[node name="Mission" parent="CanvasLayer" unique_id=1351073190 instance=ExtResource("10_hptm8")]
+position = Vector2(575, 304)
+
+[node name="Objective" type="Label" parent="CanvasLayer" unique_id=1304229926]
+offset_left = 970.0
+offset_top = -5.0
+offset_right = 1142.0
+offset_bottom = 44.0
+text = "Defeat The Slimes and
+ get to the Cave"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=787817618]
+visible = false
+color = Color(0, 0, 0, 1)
+
+[node name="Beginning Slimes" type="Node" parent="." unique_id=1065680889]
+
+[node name="Slime2" parent="Beginning Slimes" unique_id=1237123229 instance=ExtResource("2_bo1nx")]
+position = Vector2(2321, 329)
+
+[node name="Slime7" parent="Beginning Slimes" unique_id=524909457 instance=ExtResource("2_bo1nx")]
+position = Vector2(1601, 711)
+
+[node name="Slime8" parent="Beginning Slimes" unique_id=423844711 instance=ExtResource("2_bo1nx")]
+position = Vector2(1959, 729)
+
+[node name="Slime9" parent="Beginning Slimes" unique_id=1422666621 instance=ExtResource("2_bo1nx")]
+position = Vector2(2363, 708)
+
+[node name="Slime10" parent="Beginning Slimes" unique_id=270621888 instance=ExtResource("2_bo1nx")]
+position = Vector2(2117, 693)
+
+[node name="Slime11" parent="Beginning Slimes" unique_id=1340615932 instance=ExtResource("2_bo1nx")]
+position = Vector2(1777, 690)
+
+[node name="Slime12" parent="Beginning Slimes" unique_id=1128017906 instance=ExtResource("2_bo1nx")]
+position = Vector2(1401, 696)
+
+[node name="Slime13" parent="Beginning Slimes" unique_id=912982186 instance=ExtResource("2_bo1nx")]
+position = Vector2(1848, 646)
+
+[node name="Slime3" parent="Beginning Slimes" unique_id=1179676552 instance=ExtResource("2_bo1nx")]
+position = Vector2(-30, 855)
+
+[node name="Slime4" parent="Beginning Slimes" unique_id=473606078 instance=ExtResource("2_bo1nx")]
+position = Vector2(-94, 901)
+
+[node name="Slime5" parent="Beginning Slimes" unique_id=1978835763 instance=ExtResource("2_bo1nx")]
+position = Vector2(793, 808)
+
+[node name="Slime6" parent="Beginning Slimes" unique_id=2121596661 instance=ExtResource("2_bo1nx")]
+position = Vector2(1873, 330)
+
+[node name="Slime" parent="Beginning Slimes" unique_id=1962353853 instance=ExtResource("2_bo1nx")]
+position = Vector2(793, 257)
+
+[node name="CaveSlimes" type="Node" parent="." unique_id=1771863990]
+
+[node name="Slime2" parent="CaveSlimes" unique_id=608495307 instance=ExtResource("6_6bp64")]
+position = Vector2(14824, -323)
+
+[node name="Slime" parent="CaveSlimes" unique_id=567125004 instance=ExtResource("6_6bp64")]
+position = Vector2(15826, -459)
+
+[node name="Slime3" parent="CaveSlimes" unique_id=495058492 instance=ExtResource("6_6bp64")]
+position = Vector2(15722, -669)
+
+[node name="Slime4" parent="CaveSlimes" unique_id=210068808 instance=ExtResource("6_6bp64")]
+position = Vector2(16655, -570)
+
+[node name="Slime5" parent="CaveSlimes" unique_id=1509210422 instance=ExtResource("6_6bp64")]
+position = Vector2(17158, -272)
+
+[node name="Slime6" parent="CaveSlimes" unique_id=1227381521 instance=ExtResource("6_6bp64")]
+position = Vector2(17391, -443)
+
+[node name="Slime7" parent="CaveSlimes" unique_id=2061960665 instance=ExtResource("6_6bp64")]
+position = Vector2(15644, 652)
+
+[node name="Slime8" parent="CaveSlimes" unique_id=1969029828 instance=ExtResource("6_6bp64")]
+position = Vector2(15990, 501)
+
+[node name="Slime9" parent="CaveSlimes" unique_id=2045020070 instance=ExtResource("6_6bp64")]
+position = Vector2(15663, 363)
+
+[node name="Slime10" parent="CaveSlimes" unique_id=1642707245 instance=ExtResource("6_6bp64")]
+position = Vector2(16627, 206)
+
+[node name="Slime11" parent="CaveSlimes" unique_id=1260709915 instance=ExtResource("6_6bp64")]
+position = Vector2(17110, 347)
+
+[node name="Slime12" parent="CaveSlimes" unique_id=1811156471 instance=ExtResource("6_6bp64")]
+position = Vector2(15695, 1153)
+
+[node name="Slime13" parent="CaveSlimes" unique_id=1020856588 instance=ExtResource("6_6bp64")]
+position = Vector2(18283, 1099)
+
+[node name="Slime14" parent="CaveSlimes" unique_id=1601866654 instance=ExtResource("6_6bp64")]
+position = Vector2(13337, 447)
+
+[node name="Slime15" parent="CaveSlimes" unique_id=511083695 instance=ExtResource("6_6bp64")]
+position = Vector2(13149, 13)
+
+[node name="Slime16" parent="CaveSlimes" unique_id=824257494 instance=ExtResource("6_6bp64")]
+position = Vector2(13400, -421)
+
+[node name="Slime17" parent="CaveSlimes" unique_id=1756944740 instance=ExtResource("6_6bp64")]
+position = Vector2(15317, -1094)
+
+[node name="Slime18" parent="CaveSlimes" unique_id=1330285347 instance=ExtResource("6_6bp64")]
+position = Vector2(14381, -526)
+
+[node name="Slime19" parent="CaveSlimes" unique_id=438233711 instance=ExtResource("6_6bp64")]
+position = Vector2(15275, 21)
+
+[node name="Slime20" parent="CaveSlimes" unique_id=1721917694 instance=ExtResource("6_6bp64")]
+position = Vector2(15098, 214)
+
+[node name="Potions" type="Node" parent="." unique_id=1787397770]
+
+[node name="HealthPotion11" parent="Potions" unique_id=622368427 instance=ExtResource("9_6iyac")]
+position = Vector2(16141, -539)
+
+[node name="HealthPotion12" parent="Potions" unique_id=1512726093 instance=ExtResource("9_6iyac")]
+position = Vector2(15664, 904)
+
+[node name="HealthPotion13" parent="Potions" unique_id=1890830053 instance=ExtResource("9_6iyac")]
+position = Vector2(16514, 378)
+
+[node name="HealthPotion3" parent="Potions" unique_id=1886702448 instance=ExtResource("9_6iyac")]
+position = Vector2(11451, -412)
+
+[node name="HealthPotion4" parent="Potions" unique_id=649832878 instance=ExtResource("9_6iyac")]
+position = Vector2(11451, -349)
+
+[node name="HealthPotion5" parent="Potions" unique_id=1748566935 instance=ExtResource("9_6iyac")]
+position = Vector2(11491, -378)
+
+[node name="HealthPotion6" parent="Potions" unique_id=1908742037 instance=ExtResource("9_6iyac")]
+position = Vector2(19218, 1133)
+
+[node name="HealthPotion7" parent="Potions" unique_id=1058172069 instance=ExtResource("9_6iyac")]
+position = Vector2(17928, -827)
+
+[node name="HealthPotion8" parent="Potions" unique_id=1346642958 instance=ExtResource("9_6iyac")]
+position = Vector2(11340, -592)
+
+[node name="HealthPotion9" parent="Potions" unique_id=1211004138 instance=ExtResource("9_6iyac")]
+position = Vector2(13915, -1157)
+
+[node name="HealthPotion10" parent="Potions" unique_id=458924229 instance=ExtResource("9_6iyac")]
+position = Vector2(15065, -869)
+
+[node name="PosionPotion" parent="Potions" unique_id=404753188 instance=ExtResource("12_jkdf5")]
+position = Vector2(2573, 236)
+
+[node name="HealthPotion" parent="Potions" unique_id=984212217 instance=ExtResource("9_6iyac")]
+position = Vector2(2503, 285)
+scale = Vector2(4, 4)
+
+[node name="HealthPotion2" parent="Potions" unique_id=693210092 instance=ExtResource("9_6iyac")]
+position = Vector2(-94, 1085)
+
+[node name="PosionPotion2" parent="Potions" unique_id=1702319999 instance=ExtResource("12_jkdf5")]
+position = Vector2(13798, -897)
+
+[node name="PosionPotion3" parent="Potions" unique_id=71439014 instance=ExtResource("12_jkdf5")]
+position = Vector2(13301, -343)
+
+[node name="PosionPotion4" parent="Potions" unique_id=1453978519 instance=ExtResource("12_jkdf5")]
+position = Vector2(14835, 273)
+
+[node name="PosionPotion5" parent="Potions" unique_id=1758362541 instance=ExtResource("12_jkdf5")]
+position = Vector2(15234, 1104)
+
+[node name="PosionPotion6" parent="Potions" unique_id=737499510 instance=ExtResource("12_jkdf5")]
+position = Vector2(17002, -1068)
+
+[node name="PosionPotion7" parent="Potions" unique_id=1786686414 instance=ExtResource("12_jkdf5")]
+position = Vector2(15067, -654)
+
+[node name="PosionPotion8" parent="Potions" unique_id=645785098 instance=ExtResource("12_jkdf5")]
+position = Vector2(11423, -521)
+
+[node name="PosionPotion9" parent="Potions" unique_id=217443769 instance=ExtResource("12_jkdf5")]
+position = Vector2(13404, 86)
+
+[node name="PosionPotion10" parent="Potions" unique_id=1503435402 instance=ExtResource("12_jkdf5")]
+position = Vector2(14821, 608)
+
+[node name="HealthPotion14" parent="Potions" unique_id=1853777220 instance=ExtResource("9_6iyac")]
+position = Vector2(15302, 256)
+
+[node name="HealthPotion15" parent="Potions" unique_id=1483851626 instance=ExtResource("9_6iyac")]
+position = Vector2(15336, 220)
+
+[node name="HealthPotion16" parent="Potions" unique_id=1050128554 instance=ExtResource("9_6iyac")]
+position = Vector2(2466, 233)
+
+[node name="EndMessage" parent="." unique_id=825151355 instance=ExtResource("13_fdnlq")]
+position = Vector2(6484, 7506)
+scale = Vector2(0.2, 0.2)
+
+[connection signal="body_entered" from="Beginning/CaveTP" to="." method="_on_cave_tp_body_entered"]
+[connection signal="body_entered" from="CaveTileMap/BeginningTP" to="." method="_on_beginning_tp_body_entered"]
+[connection signal="body_entered" from="CaveTileMap/TownTP" to="." method="_on_town_tp_body_entered"]
+[connection signal="body_entered" from="Town/CaveTP2" to="." method="_on_cave_tp_2_body_entered"]
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]

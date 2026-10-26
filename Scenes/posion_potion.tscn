@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bauo043c6pwdf"]
+
+[ext_resource type="Script" uid="uid://d1jnyn05ctcmc" path="res://Scripts/posion_potion.gd" id="1_1us5l"]
+[ext_resource type="Texture2D" uid="uid://dndrtogbxjo0d" path="res://Assets/Potions/Green potions/poç╞o verde.png" id="1_wu10s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1us5l"]
+atlas = ExtResource("1_wu10s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuspq"]
+atlas = ExtResource("1_wu10s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sugic"]
+atlas = ExtResource("1_wu10s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htsvf"]
+atlas = ExtResource("1_wu10s")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju08e"]
+atlas = ExtResource("1_wu10s")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icais"]
+atlas = ExtResource("1_wu10s")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_405ph"]
+atlas = ExtResource("1_wu10s")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn1h8"]
+atlas = ExtResource("1_wu10s")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1rta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1us5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuspq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sugic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htsvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju08e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icais")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_405ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn1h8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1iagy"]
+radius = 7.0
+
+[node name="PosionPotion" type="Area2D" unique_id=404753188]
+scale = Vector2(2, 2)
+script = ExtResource("1_1us5l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1996452226]
+sprite_frames = SubResource("SpriteFrames_t1rta")
+autoplay = "default"
+frame_progress = 0.37050092
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1623028811]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_1iagy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

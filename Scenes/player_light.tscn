@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dje1c7bhcue0"]
+
+[sub_resource type="Gradient" id="Gradient_luwwu"]
+offsets = PackedFloat32Array(0.14457831, 0.75301206)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t1rta"]
+gradient = SubResource("Gradient_luwwu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="PlayerLight" type="PointLight2D" unique_id=1916007207]
+texture = SubResource("GradientTexture2D_t1rta")
