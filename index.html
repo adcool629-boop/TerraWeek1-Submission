@@ -91,11 +91,8 @@ body {
 }
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
-		<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-
-		<!-- The service worker script is now safely inside the head section -->
-		<script src="coi-serviceworker.js"></script>
-
+<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+<script src="coi-serviceworker.js"></script>
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -114,8 +111,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-/* Added "serviceWorker":"coi-serviceworker.js" below to make sure Godot 4.7 connects to it directly */
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":74553548,"index.wasm":38343358},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"coi-serviceworker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":74558156,"index.wasm":38343358},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = true;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -221,3 +217,4 @@ const engine = new Engine(GODOT_CONFIG);
 		</script>
 	</body>
 </html>
+
