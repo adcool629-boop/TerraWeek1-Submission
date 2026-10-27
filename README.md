@@ -2,6 +2,13 @@
 This is my submission for Terra Week 1
 
 --------------------
+A backstory on the game
+
+I made this game because I wanted to capture essence of adventure
+I also wanted to fufill the theme of outdoors that was offered to me within the Terra Community.
+I hope you enjoy my game, and look forward to my next work.
+
+--------------------
 The Premise
 
 It is a 2d Top Down game in which you must roam the world within the borders and get to the end
