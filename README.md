@@ -30,14 +30,15 @@ You are an adventurer who has recieved a request to save a village from a consta
 Then you must  Naviagate through the cave in darkness and reach the village.
 
 --------------------
-The inputs
+How to Play
 
 W to move Up
 S to move Down
 A to move left
 D to move right
 Space Bar to attack
-
+To pick up potions just run over them
+Beware of monsters for they will hurt
 --------------------
 Items
 You can collect potions that give different effects to your character
